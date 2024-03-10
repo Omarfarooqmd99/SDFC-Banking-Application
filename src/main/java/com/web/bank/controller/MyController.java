@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.web.bank.model.SdfcBank;
 import com.web.bank.services.MyServiceImp;
 
+//Controller class
 @Controller
 @RequestMapping("/sdfcbank")
 public class MyController {
@@ -34,6 +35,7 @@ public class MyController {
 		ms.insert(user);
 		return "bank/Success";
 	}
+
 	@GetMapping("/balance")
 	public String getBalance(ModelMap model) {
 		model.addAttribute("bank", new SdfcBank());
@@ -51,83 +53,79 @@ public class MyController {
 			return "bank/Balance";
 		}
 	}
-	
+
 	@GetMapping("/deposit")
 	public String getDepositAmo(ModelMap m) {
 		m.addAttribute("depo", new SdfcBank());
 		return "bank/Deposit";
 	}
-	
+
 	@PostMapping("/deposit")
 	public String setDepositAmo(@ModelAttribute("depo") SdfcBank sb, ModelMap m) {
 		SdfcBank a = ms.depositAmount(sb);
-		if(a!=null) {
+		if (a != null) {
 			m.addAttribute("user", a);
 			return "bank/show";
-		}
-		else {
+		} else {
 			m.addAttribute("error", "Invalid credentials");
 			return "bank/Deposit";
 		}
 	}
-	
+
 	@GetMapping("/withdraw")
 	public String getWithdraw(ModelMap m) {
 		m.addAttribute("depo", new SdfcBank());
 		return "bank/Withdraw";
 	}
-	
+
 	@PostMapping("/withdraw")
 	public String setWithdraw(@ModelAttribute("depo") SdfcBank sb, ModelMap m) {
 		SdfcBank a = ms.withdrawAmount(sb);
-		if(a!=null) {
+		if (a != null) {
 			m.addAttribute("user", a);
 			return "bank/show";
-		}
-		else {
+		} else {
 			m.addAttribute("error", "Invalid credentials");
 			return "bank/Withdraw";
 		}
 	}
-	
+
 	@GetMapping("/transfer")
 	public String getTransfer(ModelMap m) {
 		m.addAttribute("tran", new SdfcBank());
 		return "bank/Transfer";
 	}
-	
+
 	@PostMapping("/transfer")
 	public String setTransfer(@ModelAttribute("tran") SdfcBank sb, ModelMap m) {
 		SdfcBank a = ms.transferAmount(sb);
-		if(a!=null) {
+		if (a != null) {
 			m.addAttribute("user", a);
 			return "bank/show";
-		}
-		else {
+		} else {
 			m.addAttribute("error", "Invalid credentials");
 			return "bank/Transfer";
 		}
 	}
-	
+
 	@GetMapping("/closeAccount")
 	public String getCloseAccount(ModelMap m) {
 		m.addAttribute("close", new SdfcBank());
 		return "bank/CloseAccount";
 	}
-	
+
 	@PostMapping("/closeAccount")
 	public String setCloseAccount(@ModelAttribute("close") SdfcBank sb, ModelMap m) {
 		SdfcBank a = ms.accountClose(sb);
-		if(a!=null) {
+		if (a != null) {
 			m.addAttribute("user", a);
 			return "bank/Success";
-		}
-		else {
+		} else {
 			m.addAttribute("error", "Invalid credentials");
 			return "bank/CloseAccount";
 		}
 	}
-	
+
 	@GetMapping("/aboutUs")
 	public String getAboutUs() {
 		return "bank/AboutUs";
