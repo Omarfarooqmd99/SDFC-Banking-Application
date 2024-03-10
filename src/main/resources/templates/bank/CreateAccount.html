@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Insert title here</title>
+		<link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />
+	</head>
+	<body>
+		<div th:replace="~{bank/home :: navigation}"></div>
+		 <!--<iframe src="/sdfcbank/" width="100%" height="450px" frameborder="0"></iframe>-->
+		<div class="formm">
+			<form action="/sdfcbank/create" method="post">
+				<table border="5">
+					<tr>
+						<td><input type="number" name="accountNo" placeholder="Account Number:"/></td>
+					</tr>
+					<tr>
+						<td>Name: <input type="text" name="name"/></td>
+					</tr>
+					<tr>
+						<td>Password: <input type="text" name="password"/></td>
+					</tr>	
+					<tr>
+						<td>Confirm Password: <input type="password" name="confirmPassword"/></td>
+					</tr>
+					<tr>
+						<td>Amount: <input type="number" name="amount" /></td>
+					</tr>
+					<tr>
+						<td>Address: <input type="text" name="address"/></td>
+					</tr>
+					<tr>
+						<td>Mobile No: <input type="number" name="mobile"/></td>
+					</tr>
+					<tr><td><input type="submit" value="Submit"/></td></tr>
+				</table>
+				
+			</form>
+		</div>
+	</body>
+</html>

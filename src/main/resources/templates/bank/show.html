@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head><link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" /></head>
+<body>
+	<div th:replace="~{bank/home :: navigation}"></div>
+    <h1>User Details</h1>
+    <table border="2">
+        <tr>
+            <th>Account Number</th>
+            <th>Name</th>
+            <th>Balance</th>
+        </tr>
+        <tr th:each="u : ${user}">
+            <td th:text="${u.accountNo}"></td>
+            <td th:text="${u.name}"></td>
+            <td th:text="${u.amount}"></td>
+        </tr>
+    </table>
+</body>
+</html>

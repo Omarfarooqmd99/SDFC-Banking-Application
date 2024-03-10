@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Balance</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />
+</head>
+<body>
+	<div th:replace="~{bank/home :: navigation}"></div>
+    <div class="formm">
+        <form th:action="@{/sdfcbank/withdraw}" th:object="${depo}" method="post">
+            <table border="5">
+                <tr>
+				    <td>Account Number: <input type="text" th:field="*{accountNo}" /></td>
+				</tr>
+				<tr>
+				    <td>Name: <input type="text" th:field="*{name}" /></td>
+				</tr>
+				<tr>
+				    <td>Password: <input type="password" th:field="*{password}" /></td>
+				</tr>
+				<tr>
+				    <td>Amount: <input type="text" th:field="*{amount}" /></td>
+				</tr>
+				<tr><td><input type="submit" value="Submit"/></td></tr>
+            </table>
+        </form>
+    </div>
+    <div th:if="${error}" style="color: red;" th:text="${error}"></div>
+</body>
+</html>

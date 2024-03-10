@@ -1,0 +1,49 @@
+/* Add this CSS to your home.css file */
+
+div {
+    text-align: center;
+}
+
+div img {
+    display: block; /* To remove any default inline styling of the image */
+    margin: auto; /* Set margin to auto to center-align the image */
+}
+
+
+nav {
+    background-color: lightgreen; /* Set background color to light green */
+    padding: 10px; /* Add padding for spacing inside the nav */
+}
+
+nav div {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space items evenly along the main axis */
+    align-items: center; /* Center items along the cross axis */
+    
+}
+
+nav h1 {
+    margin: 0; /* Remove default margin for h1 elements */
+}
+
+nav a {
+    text-decoration: none; /* Remove underline from anchor links */
+    color: black; /* Set link color to black */
+}
+
+h1 a:hover {
+    color: darkgreen; /* Change link color on hover */
+}
+
+.homeb {
+	text-align: center;
+	margin-bottom: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+
